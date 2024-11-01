@@ -1,8 +1,11 @@
 .inputsearchwrapper {
   background-color: #c7e4ed;
   width: 800px;
-  height: 500px;
   margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,59 +21,14 @@
   -o-transform: translate(-50%, -50%);
 }
 
-.searchinput {
-  width: 100%;
-  height: 50px;
-  /* background: red; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
-.iconwrapper {
-  position: relative;
-}
-
-.searchinput input {
-  width: 490px;
-  height: 50px;
+.button {
+  color: white;
+  background-color: #000b58;
   border: none;
-  padding-left: 1em;
-  padding-right: 2em;
-  box-sizing: border-box;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-.searchinputicon {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  pointer-events: none;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-}
-
-.errorwraper {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background: red; */
-}
-
-.errorwraper p {
-  text-align: left;
-  width: 60%;
-  font-size: 14px;
-  font-family: poppins;
-  font-weight: 500;
-  color: #1e2432;
+  padding: 15px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
