@@ -1,6 +1,6 @@
 .inputsearchwrapper {
   background-color: #c7e4ed;
-  width: 800px;
+  width: 850px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -26,6 +26,7 @@
   background-color: #000b58;
   border: none;
   padding: 15px;
+  margin: 5px auto;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
