@@ -90,6 +90,7 @@ textarea:not([rows]) {
 }
 
 body {
+  background: #1a1a19;
 }
 
 .poppins-light {

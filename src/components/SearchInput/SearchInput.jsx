@@ -7,12 +7,13 @@ import DetailsItem from "../DetailsItem/DetailsItem";
 import Input from "../Input/Input";
 import getforecast from "../../services/getforecast";
 import ForeCast from "../ForeCast/ForeCast";
+import Error from "../Error/Error";
 
 function SearchInput() {
   const [show, setShow] = useState(false);
   const city = useSelector((state) => state?.usersearch?.city);
 
-  const { data: weatherdata } = useQuery({
+  const { error, data: weatherdata } = useQuery({
     queryKey: ["repoData", city],
     queryFn: () => getweather(city),
     enabled: !!city,
@@ -23,6 +24,10 @@ function SearchInput() {
     queryFn: () => getforecast(city),
     enabled: !!city,
   });
+
+  console.log(error?.message);
+
+  if (error) return <Error message={error?.message} />;
 
   return (
     <div className="inputsearchwrapper">
