@@ -7,32 +7,29 @@ import DetailsItem from "../DetailsItem/DetailsItem";
 import Input from "../Input/Input";
 import getforecast from "../../services/getforecast";
 import ForeCast from "../ForeCast/ForeCast";
-import Error from "../Error/Error";
 
 function SearchInput() {
   const [show, setShow] = useState(false);
   const city = useSelector((state) => state?.usersearch?.city);
 
-  const { error, data: weatherdata } = useQuery({
+  const { error: weatherError, data: weatherdata } = useQuery({
     queryKey: ["repoData", city],
     queryFn: () => getweather(city),
     enabled: !!city,
   });
 
-  const { data: forecastdata } = useQuery({
+  const { error: forecastError, data: forecastdata } = useQuery({
     queryKey: ["forecastData", city],
     queryFn: () => getforecast(city),
     enabled: !!city,
   });
 
-  console.log(error?.message);
-
-  if (error) return <Error message={error?.message} />;
-
   return (
     <div className="inputsearchwrapper">
       <Input />
-      {/* {city == null && <p>search</p>} */}
+      {weatherError && <p>{weatherError.message}. please reload the page</p>}
+      {forecastError && <p>{forecastError.message}. please reload the page</p>}
+
       {weatherdata && <DetailsItem weatherdata={weatherdata} />}
 
       {show && city && (
@@ -45,9 +42,11 @@ function SearchInput() {
         </div>
       )}
 
-      <button className="button" onClick={() => setShow((show) => !show)}>
-        {show ? "show less" : "forecast weather"}
-      </button>
+      {!weatherError && (
+        <button className="button" onClick={() => setShow((show) => !show)}>
+          {show ? "show less" : "forecast weather"}
+        </button>
+      )}
     </div>
   );
 }
